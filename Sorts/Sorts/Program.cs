@@ -16,7 +16,8 @@ namespace Sorts
 
             Helpers.Show(strs,"Before sort");
 
-            Selection.Sort(strs);
+            //Selection.Sort(strs);
+            Insertion.Sort(strs);
 
             Helpers.Show(strs, "After sort");
 
