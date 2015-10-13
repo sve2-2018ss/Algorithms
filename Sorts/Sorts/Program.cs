@@ -14,36 +14,28 @@ namespace Sorts
 
             string[] strs=new string[] {"5","3","4","2","0","1"};
 
-            //Helpers.Show(strs,"Before sort");
-
-            //***Elementary Sorts***
-
+            Helpers.Show(strs,"Before sort");
+            
+            #region Elementary Sorts
             //Helpers.CompareElementarySorts(strs);
-
             //Selection.Sort(strs);
             //Insertion.Sort(strs);
             //Shell.Sort(strs);
-
-            //**********************
-
-            //***Merge Sorts***
-
+            #endregion
+            
+            #region Merge Sorts
             //Helpers.CompareMergeSorts(strs);
-
             //Merge.TopDownSort(strs);
             //Merge.BottomUpSort(strs);
-
-            //*****************
-
-            //***Quick Sorts***
-
-            Helpers.CompareQuickSorts(strs);
+            #endregion
+            
+            #region Quick Sorts
+            //Helpers.CompareQuickSorts(strs);
             //Quick.Sort(strs);
             //Quick3Way.Sort(strs);
+            #endregion
 
-            //*****************
-
-            //Helpers.Show(strs, "After sort");
+            Helpers.Show(strs, "After sort");
 
             Console.ReadKey();
         }
