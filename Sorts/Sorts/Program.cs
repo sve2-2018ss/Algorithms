@@ -14,14 +14,16 @@ namespace Sorts
 
             string[] strs=new string[] {"5","3","4","2","0","1"};
 
-            //Helpers.Show(strs,"Before sort");
+            Helpers.CompareSorts(strs);
+
+            Helpers.Show(strs,"Before sort");
 
             //Selection.Sort(strs);
             //Insertion.Sort(strs);
-            Helpers.CompareSorts(strs);
+            Shell.Sort(strs);
 
-            //Helpers.Show(strs, "After sort");
-
+            Helpers.Show(strs, "After sort");
+            
             Console.ReadKey();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -14,15 +15,41 @@ namespace Sorts
             time.Start();
             Selection.Sort(temp);
             time.Stop();
-            var first = time.Elapsed;
+            List<TimeSpan> times=new List<TimeSpan>();
+            times.Add(time.Elapsed);
             temp= (IComparable[])data.Clone();
             time.Restart();
             Insertion.Sort(temp);
             time.Stop();
-            var second = time.Elapsed;
-            if (first < second) Console.WriteLine("Selection sort faster");
-            if (first > second) Console.WriteLine("Insertion sort faster");
-            if (first == second) Console.WriteLine("Sorts equality");
+            times.Add(time.Elapsed);
+            temp = (IComparable[])data.Clone();
+            time.Restart();
+            Shell.Sort(temp);
+            time.Stop();
+            times.Add(time.Elapsed);
+            var min = Helpers.Min(times);
+            if (times[0] == min && times[1] == min && times[2] == min)
+            {
+                Console.WriteLine("Sorts equality");
+                return;
+            }
+            if (times[0] == min)
+                Console.WriteLine("Selection sort faster");
+            if (times[1] == min)
+                Console.WriteLine("Insertion sort faster");
+            if (times[2] == min)
+                Console.WriteLine("Shell sort faster");
+        }
+
+        public static T Min<T>(List<T> list) where T : IComparable
+        {
+            var min = list.First();
+            foreach (var v in list)
+            {
+                if (v.CompareTo(min) == -1)
+                    min = v;
+            }
+            return min;
         }
 
         public static void exch(IComparable[] a, int i, int j)
