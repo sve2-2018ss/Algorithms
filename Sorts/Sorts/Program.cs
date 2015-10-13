@@ -28,7 +28,8 @@ namespace Sorts
 
             //***Merge Sorts***
 
-            Merge.Sort(strs);
+            //Merge.TopDownSort(strs);
+            Merge.BottomUpSort(strs);
 
             //*****************
 
