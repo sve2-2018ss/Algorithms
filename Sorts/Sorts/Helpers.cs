@@ -11,18 +11,18 @@ namespace Sorts
         public static void CompareElementarySorts(IComparable[] data)
         {
             var temp = (IComparable[]) data.Clone();
-            Stopwatch time=new Stopwatch();
+            Stopwatch time = new Stopwatch();
             time.Start();
             Selection.Sort(temp);
             time.Stop();
-            List<TimeSpan> times=new List<TimeSpan>();
+            List<TimeSpan> times = new List<TimeSpan>();
             times.Add(time.Elapsed);
-            temp= (IComparable[])data.Clone();
+            temp = (IComparable[]) data.Clone();
             time.Restart();
             Insertion.Sort(temp);
             time.Stop();
             times.Add(time.Elapsed);
-            temp = (IComparable[])data.Clone();
+            temp = (IComparable[]) data.Clone();
             time.Restart();
             Shell.Sort(temp);
             time.Stop();
@@ -43,20 +43,20 @@ namespace Sorts
 
         public static void CompareMergeSorts(IComparable[] data)
         {
-            var temp = (IComparable[])data.Clone();
+            var temp = (IComparable[]) data.Clone();
             Stopwatch time = new Stopwatch();
             time.Start();
             Merge.TopDownSort(temp);
             time.Stop();
             List<TimeSpan> times = new List<TimeSpan>();
             times.Add(time.Elapsed);
-            temp = (IComparable[])data.Clone();
+            temp = (IComparable[]) data.Clone();
             time.Restart();
             Merge.BottomUpSort(temp);
             time.Stop();
             times.Add(time.Elapsed);
             var min = Helpers.Min(times);
-            if (times.All(i=>i==min))
+            if (times.All(i => i == min))
             {
                 Console.WriteLine("Sorts equality");
                 return;
@@ -85,15 +85,33 @@ namespace Sorts
             a[j] = temp;
         }
 
-        public static void Show(IComparable[] a,string message="")
+        public static void Show(IComparable[] a, string message = "")
         {
-            Console.WriteLine("\n---{0}---",message);
+            Console.WriteLine("\n---{0}---", message);
             a.All(i =>
             {
                 Console.WriteLine(i);
                 return true;
             });
             Console.WriteLine("---===---\n");
+        }
+
+        public static void shuffle(IComparable[] a)
+        {
+            int N = a.Length;
+            for (int i = 0; i < N; i++)
+            {
+                int r = i + uniform(N - i); // between i and N-1
+                var temp = a[i];
+                a[i] = a[r];
+                a[r] = temp;
+            }
+        }
+
+        private static int uniform(int n)
+        {
+            Random random = new Random();
+            return random.Next(n);
         }
     }
 }
