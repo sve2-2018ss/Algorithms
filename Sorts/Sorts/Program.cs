@@ -14,7 +14,7 @@ namespace Sorts
 
             string[] strs=new string[] {"5","3","4","2","0","1"};
             
-            Helpers.Show(strs,"Before sort");
+            //Helpers.Show(strs,"Before sort");
 
             //***Elementary Sorts***
 
@@ -29,11 +29,12 @@ namespace Sorts
             //***Merge Sorts***
 
             //Merge.TopDownSort(strs);
-            Merge.BottomUpSort(strs);
+            //Merge.BottomUpSort(strs);
+            Helpers.CompareMergeSorts(strs);
 
             //*****************
 
-            Helpers.Show(strs, "After sort");
+            //Helpers.Show(strs, "After sort");
             
             Console.ReadKey();
         }
