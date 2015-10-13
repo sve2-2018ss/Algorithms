@@ -12,7 +12,7 @@ namespace Sorts
 
         public static void sort(IComparable[] a, int lo, int hi)
         {
-            // See page 289 for public sort() that calls this method.
+            
             if (hi <= lo) return;
             int lt = lo, i = lo + 1, gt = hi;
             IComparable v = a[lo];

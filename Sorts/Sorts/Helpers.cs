@@ -67,6 +67,32 @@ namespace Sorts
                 Console.WriteLine("Bottom up sort faster");
         }
 
+        public static void CompareQuickSorts(IComparable[] data)
+        {
+            var temp = (IComparable[])data.Clone();
+            Stopwatch time = new Stopwatch();
+            time.Start();
+            Quick.Sort(temp);
+            time.Stop();
+            List<TimeSpan> times = new List<TimeSpan>();
+            times.Add(time.Elapsed);
+            temp = (IComparable[])data.Clone();
+            time.Restart();
+            Quick3Way.Sort(temp);
+            time.Stop();
+            times.Add(time.Elapsed);
+            var min = Helpers.Min(times);
+            if (times.All(i => i == min))
+            {
+                Console.WriteLine("Sorts equality");
+                return;
+            }
+            if (times[0] == min)
+                Console.WriteLine("Quick sort faster");
+            if (times[1] == min)
+                Console.WriteLine("Quick3Way sort faster");
+        }
+
         public static T Min<T>(List<T> list) where T : IComparable
         {
             var min = list.First();

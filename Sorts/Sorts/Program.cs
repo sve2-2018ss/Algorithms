@@ -14,7 +14,7 @@ namespace Sorts
 
             string[] strs=new string[] {"5","3","4","2","0","1"};
 
-            Helpers.Show(strs,"Before sort");
+            //Helpers.Show(strs,"Before sort");
 
             //***Elementary Sorts***
 
@@ -37,12 +37,13 @@ namespace Sorts
 
             //***Quick Sorts***
 
+            Helpers.CompareQuickSorts(strs);
             //Quick.Sort(strs);
-            Quick3Way.Sort(strs);
+            //Quick3Way.Sort(strs);
 
             //*****************
 
-            Helpers.Show(strs, "After sort");
+            //Helpers.Show(strs, "After sort");
 
             Console.ReadKey();
         }
