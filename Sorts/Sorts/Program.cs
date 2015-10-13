@@ -13,14 +13,24 @@ namespace Sorts
             //string[] strs=new string[] {"sdfssd","sdfsdfsdadf","wr24rtgrgsfa","134nvk1"};
 
             string[] strs=new string[] {"5","3","4","2","0","1"};
-
-            Helpers.CompareSorts(strs);
-
+            
             Helpers.Show(strs,"Before sort");
+
+            //***Elementary Sorts***
+
+            //Helpers.CompareElementarySorts(strs);
 
             //Selection.Sort(strs);
             //Insertion.Sort(strs);
-            Shell.Sort(strs);
+            //Shell.Sort(strs);
+
+            //**********************
+
+            //***Merge Sorts***
+
+            Merge.Sort(strs);
+
+            //*****************
 
             Helpers.Show(strs, "After sort");
             

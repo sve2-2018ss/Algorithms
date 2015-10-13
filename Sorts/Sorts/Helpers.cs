@@ -8,7 +8,7 @@ namespace Sorts
 {
     public static class Helpers
     {
-        public static void CompareSorts(IComparable[] data)
+        public static void CompareElementarySorts(IComparable[] data)
         {
             var temp = (IComparable[]) data.Clone();
             Stopwatch time=new Stopwatch();
