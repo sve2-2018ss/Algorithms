@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symbol Table", "Searching\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binary Search Trees", "Binary Search Trees\Binary Search Trees.csproj", "{ADF0F594-66CA-4F20-9549-1EAA03B6D158}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedBlackBST", "RedBlackBST\RedBlackBST.csproj", "{6CB97C02-D4EA-48EB-9420-C9F6409F8B49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{ADF0F594-66CA-4F20-9549-1EAA03B6D158}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADF0F594-66CA-4F20-9549-1EAA03B6D158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADF0F594-66CA-4F20-9549-1EAA03B6D158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CB97C02-D4EA-48EB-9420-C9F6409F8B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB97C02-D4EA-48EB-9420-C9F6409F8B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB97C02-D4EA-48EB-9420-C9F6409F8B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CB97C02-D4EA-48EB-9420-C9F6409F8B49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
