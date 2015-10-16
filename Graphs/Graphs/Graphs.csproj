@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cycle.cs" />
     <Compile Include="DepthFirstSearch.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="Paths.cs" />

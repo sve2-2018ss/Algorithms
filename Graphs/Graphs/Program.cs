@@ -15,10 +15,12 @@ namespace Graphs
             gr.addEdge(2, 3);
             gr.addEdge(2, 4);
 
+            gr.addEdge(2, 1); // add to Cycled
+
             Console.WriteLine(gr);
 
             #region Depthfirstsearch
-            
+
             /*Console.WriteLine("Max Degree : {0}",gr.maxDegree());
             Console.WriteLine("Avg Degree : {0}", gr.avgDegree());
 
@@ -30,10 +32,21 @@ namespace Graphs
 
             #endregion
 
+            #region Paths
 
-            Paths search = new Paths(gr);
-            search.ShowPaths();
-            search.ShowHowWired();
+            //Paths search = new Paths(gr);
+            //search.ShowPaths();
+            //search.ShowHowWired();
+
+            #endregion
+
+            #region Cycle
+
+            Cycle cycle = new Cycle(gr);
+            Console.WriteLine("Graph {0}", cycle.HasCycle ? "Cycled" : "NOT Cycled");
+
+            #endregion
+
 
 
 
