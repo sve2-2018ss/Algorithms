@@ -22,18 +22,9 @@ namespace DirectedGraphs
             Console.WriteLine(dg);
 
             Console.Write("Marked: ");
-            dg.Marked();
-
-            DirectedCycle Cycle= new DirectedCycle(dg);
-            if (Cycle.hasCycle())
-            {
-                Console.Write("Directed Graph Cyclid in : ");
-                foreach (var e in Cycle.Cycle())
-                {
-                    Console.Write("{0} ",e);
-                }
-                Console.WriteLine();
-            }
+            dg.ShowMarked();
+            
+            dg.ShowCycle();
             
             Console.ReadKey();
         }
@@ -41,13 +32,27 @@ namespace DirectedGraphs
 
     public static class Helpers
     {
-        public static void Marked(this DiGraph dg)
+        public static void ShowMarked(this DiGraph dg)
         {
             DirectedDFS reachable = new DirectedDFS(dg, dg.V);
             for (int v = 0; v < dg.V; v++)
                 if (reachable.Marked(v))
                     Console.Write(v + " ");
             Console.WriteLine();
+        }
+
+        public static void ShowCycle(this DiGraph dg)
+        {
+            DirectedCycle Cycle = new DirectedCycle(dg);
+            if (Cycle.hasCycle())
+            {
+                Console.Write("Directed Graph Cycled in : ");
+                foreach (var e in Cycle.Cycle())
+                {
+                    Console.Write("{0} ", e);
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
