@@ -10,14 +10,16 @@ namespace Graphs
     {
         static void Main(string[] args)
         {
-            Graph gr=new Graph(4);
+            #region Graph
+
+            /*Graph gr = new Graph(4);
             gr.addEdge(1, 2);
             gr.addEdge(2, 3);
-            gr.addEdge(2, 4);
+            gr.addEdge(2, 4);*/
 
-            gr.addEdge(2, 1); // add to Cycled
+            //gr.addEdge(2, 1); // add to Cycled
 
-            Console.WriteLine(gr);
+            //Console.WriteLine(gr);
 
             #region Depthfirstsearch
 
@@ -42,12 +44,29 @@ namespace Graphs
 
             #region Cycle
 
-            Cycle cycle = new Cycle(gr);
-            Console.WriteLine("Graph {0}", cycle.HasCycle ? "Cycled" : "NOT Cycled");
+            //Cycle cycle = new Cycle(gr);
+            //Console.WriteLine("Graph {0}", cycle.HasCycle ? "Cycled" : "NOT Cycled");
 
             #endregion
 
+            #endregion
 
+            #region Symbol Graph
+
+            SymbolGraph sgt = new SymbolGraph(4);
+            sgt.AddPoint("Alex");
+            sgt.AddPoint("Anna");
+            sgt.AddPoint("Aliona");
+            sgt.AddPoint("Sergey");
+
+            sgt.AddWire(1, 2);
+            sgt.AddWire(2, 3);
+            sgt.AddWire(1, 4);
+
+            Console.WriteLine(sgt);
+            sgt.ShowPaths();
+
+            #endregion
 
 
             Console.ReadKey();
@@ -56,6 +75,24 @@ namespace Graphs
 
     static class MyExt
     {
+        public static void ShowPaths(this SymbolGraph gr)
+        {
+            Paths search = new Paths(gr.graph);
+            for (int v = 1; v <= search.s; v++)
+            {
+                for (int j = 1; j <= search.s; j++)
+                {
+                    if (j == v)
+                        break;
+                    Console.Write("Path {0}-{1} :", gr.name(j-1), gr.name(v-1));
+                    if (search.hasPathTo(v))
+                        foreach (int x in search.pathTo(j, v))
+                            Console.Write("-" + gr.name(x-1));
+                    Console.WriteLine();
+                }
+            }
+        }
+
         public static void ShowPaths(this Paths search)
         {
             for (int v = 1; v <= search.s; v++)
