@@ -43,11 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DepthFirstOrder.cs" />
     <Compile Include="DiGraph.cs" />
     <Compile Include="DirectedCycle.cs" />
     <Compile Include="DirectedDFS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Topological.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

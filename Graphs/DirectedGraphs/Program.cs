@@ -16,16 +16,17 @@ namespace DirectedGraphs
             dg.addEdge(1, 2);
             dg.addEdge(1, 3);
             dg.addEdge(2, 4);
-            dg.addEdge(4, 0);
+            //dg.addEdge(4, 0); //Comment it for topological
             dg.addEdge(4, 3);
 
             Console.WriteLine(dg);
-
-            Console.Write("Marked: ");
+            
             dg.ShowMarked();
             
             dg.ShowCycle();
-            
+
+            dg.ShowTopological();
+
             Console.ReadKey();
         }
     }
@@ -34,6 +35,7 @@ namespace DirectedGraphs
     {
         public static void ShowMarked(this DiGraph dg)
         {
+            Console.Write("Marked: ");
             DirectedDFS reachable = new DirectedDFS(dg, dg.V);
             for (int v = 0; v < dg.V; v++)
                 if (reachable.Marked(v))
@@ -53,6 +55,16 @@ namespace DirectedGraphs
                 }
                 Console.WriteLine();
             }
+        }
+
+        public static void ShowTopological(this DiGraph dg)
+        {
+            Topological top = new Topological(dg);
+            if (top.isDAG()) return;
+            Console.Write("Topological: ");
+            foreach (int v in top.Order)
+                Console.Write("{0} ",v);
+            Console.WriteLine();
         }
     }
 }
