@@ -32,19 +32,10 @@ namespace Graphs
 
 
             Paths search = new Paths(gr);
-            for (int v = 1; v <= gr.V; v++)
-            {
-                for (int j = 1; j <= gr.V; j++)
-                {
-                    if (j == v)
-                        break;
-                    Console.Write("Path {1}-{0} :", v, j);
-                    if (search.hasPathTo(v))
-                        foreach (int x in search.pathTo(j,v))
-                            Console.Write("-" + x);
-                    Console.WriteLine();
-                }
-            }
+            search.ShowPaths();
+            search.ShowHowWired();
+
+
 
             Console.ReadKey();
         }
@@ -52,6 +43,43 @@ namespace Graphs
 
     static class MyExt
     {
+        public static void ShowPaths(this Paths search)
+        {
+            for (int v = 1; v <= search.s; v++)
+            {
+                for (int j = 1; j <= search.s; j++)
+                {
+                    if (j == v)
+                        break;
+                    Console.Write("Path {0}-{1} :", j, v);
+                    if (search.hasPathTo(v))
+                        foreach (int x in search.pathTo(j, v))
+                            Console.Write("-" + x);
+                    Console.WriteLine();
+                }
+            }
+        }
+
+        public static void ShowHowWired(this Paths search)
+        {
+            for (int v = 1; v <= search.s; v++)
+            {
+                for (int j = 1; j <= search.s; j++)
+                {
+                    if (j == v)
+                        break;
+                    Console.Write("Path {0}-{1} :", j, v);
+                    if (search.hasPathTo(v))
+                        if (search.Wired(j, v))
+                        {
+                            if (search.OneWired(j, v))
+                                Console.Write("Straight ");
+                            Console.WriteLine("Wired");
+                        }
+                }
+            }
+        }
+
         public static int degree(this Graph G, int v)
         {
             int degree = 0;

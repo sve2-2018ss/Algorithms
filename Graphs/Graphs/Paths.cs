@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Graphs
 {
@@ -10,7 +11,7 @@ namespace Graphs
     {
         private bool[] marked; // Has dfs() been called for this vertex?
         private List<int>[] edgeTo; // last vertex on known path to this vertex
-        private readonly int s; // source
+        public readonly int s; // source
         public Paths(Graph G)
         {
             marked = new bool[G.V];
@@ -55,7 +56,7 @@ namespace Graphs
                 if(x!=j)
                     path.Push(x);
             }
-            return path; //pathFind(j,v);
+            return path;
         }
 
         private List<int> pathFind(int j,int v)
@@ -68,15 +69,20 @@ namespace Graphs
                 
             }
             else
-            foreach (var n in edgeTo[v-1])
-            {
-                foreach (var x in pathFind(n,v))
-                {
-                    path.Add(x);
-                }
-            }
-            
+                path.AddRange(edgeTo[v - 1].SelectMany(n => pathFind(n, v)));
+
             return path;
+        }
+
+        public bool OneWired(int j, int v)
+        {
+
+            return pathFind(j, v).Count(i => i != j) == 1;
+        }
+
+        public bool Wired(int j, int v)
+        {
+            return pathFind(j, v).Count != 0;
         }
     }
 }
