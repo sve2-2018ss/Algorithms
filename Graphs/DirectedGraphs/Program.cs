@@ -27,11 +27,15 @@ namespace DirectedGraphs
 
             dg.ShowTopological();
 
+            Console.WriteLine("{0}-{1} is strongly connected : {2}", 0, 1, dg.isStonglyConnected(0, 1));
+
+            Console.WriteLine("{0}-{1} is reachable : {2}", 0, 3, dg.Reachable(0, 3));
+
             Console.ReadKey();
         }
     }
 
-    public static class Helpers
+    public static class Helper
     {
         public static void ShowMarked(this DiGraph dg)
         {
@@ -65,6 +69,18 @@ namespace DirectedGraphs
             foreach (int v in top.Order)
                 Console.Write("{0} ",v);
             Console.WriteLine();
+        }
+
+        public static bool isStonglyConnected(this DiGraph dg,int first,int second)
+        {
+            KosarajuSCC scc=new KosarajuSCC(dg);
+            return scc.stronglyConnected(first, second);
+        }
+
+        public static bool Reachable(this DiGraph dg, int first, int second)
+        {
+            TransitiveClosure ts=new TransitiveClosure(dg);
+            return ts.reachable(first, second);
         }
     }
 }
