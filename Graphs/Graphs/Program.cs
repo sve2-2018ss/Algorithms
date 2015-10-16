@@ -16,24 +16,34 @@ namespace Graphs
             gr.addEdge(2, 4);
 
             Console.WriteLine(gr);
-            Console.WriteLine("Max Degree : {0}",gr.maxDegree());
+
+            #region Depthfirstsearch
+            
+            /*Console.WriteLine("Max Degree : {0}",gr.maxDegree());
             Console.WriteLine("Avg Degree : {0}", gr.avgDegree());
 
             DepthFirstSearch search1=new DepthFirstSearch(gr, 4);
             Console.Write("Graph ");
             search1.Show();
-            int point = 4;
-            Console.WriteLine("{1} path to {0}", point, search1.hasPathTo(point)? "Has" : "Hasn't");
+            int point = 2;
+            Console.WriteLine("{1} path to {0}", point, search1.hasPathTo(point)? "Has" : "Hasn't");*/
 
-            Paths search = new Paths(gr, point);
+            #endregion
+
+
+            Paths search = new Paths(gr);
             for (int v = 1; v <= gr.V; v++)
             {
-                Console.Write(point + " to " + v + ": ");
-                if (search.hasPathTo(v))
-                    foreach (int x in search.pathTo(v))
-                        if (x == point) Console.Write(x);
-                        else Console.Write("-" + x);
-                Console.WriteLine();
+                for (int j = 1; j <= gr.V; j++)
+                {
+                    if (j == v)
+                        break;
+                    Console.Write("Path {1}-{0} :", v, j);
+                    if (search.hasPathTo(v))
+                        foreach (int x in search.pathTo(j,v))
+                            Console.Write("-" + x);
+                    Console.WriteLine();
+                }
             }
 
             Console.ReadKey();

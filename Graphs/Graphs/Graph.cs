@@ -26,7 +26,6 @@ namespace Graphs
                 return _V;
             }
         }
-
         public int E
         {
             get
@@ -34,6 +33,7 @@ namespace Graphs
                 return _E;
             }
         }
+
         public void addEdge(int v, int w)
         {
             adj[v-1].Add(w); // Add w to v’s list.
