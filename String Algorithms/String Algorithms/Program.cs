@@ -31,7 +31,8 @@ namespace String_Algorithms
             Console.WriteLine();
 
             //LSD.sort(strs,7);
-            MSD.sort(strs);
+            //MSD.sort(strs);
+            Quick3string.sort(strs);
 
             strs.Show();
             Console.ReadKey();
