@@ -43,12 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DijkstraSP.cs" />
+    <Compile Include="Acyclic SP\AcyclicSP.cs" />
+    <Compile Include="Acyclic SP\DepthFirstOrder.cs" />
+    <Compile Include="Dijkstra SP\DijkstraSP.cs" />
+    <Compile Include="Acyclic SP\DirectedCycle.cs" />
     <Compile Include="DirectedEdge.cs" />
     <Compile Include="EdgeWeightedDigraph.cs" />
-    <Compile Include="PriorityQueue.cs" />
+    <Compile Include="Dijkstra SP\PriorityQueue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Acyclic SP\Topological.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

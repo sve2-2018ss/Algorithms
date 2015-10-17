@@ -16,7 +16,13 @@ namespace ShortestPath
             ewg.ShowEdges();
             Console.WriteLine();
 
-            ewg.ShowPaths();
+            Console.WriteLine("Dijkstra Paths :");
+            ewg.ShowPathsByDijkstra();
+            Console.WriteLine();
+            
+            Console.WriteLine("Acyclic Paths");
+            ewg.ShowPathsByAcyclic();
+            Console.WriteLine();
 
             Console.ReadKey();
         }
@@ -49,24 +55,47 @@ namespace ShortestPath
             }
         }
 
-        public static void ShowPaths(this EdgeWeightedDigraph ewg)
+        public static void ShowPathsByDijkstra(this EdgeWeightedDigraph ewg)
         {
             DijkstraAllPairsSP dapsp=new DijkstraAllPairsSP(ewg);
             for (int i = 0; i < ewg.V; i++)
             {
                 for (int j = 0; j < ewg.V; j++)
                 {
-                    if (i != j)
+                    if (dapsp.hasPathTo(i, j) && i != j)
                     {
-                        if (dapsp.hasPathTo(i, j))
+                        Console.WriteLine("{0}-{1} : ", i, j);
+                        foreach (var v in dapsp.path(i, j))
                         {
-                            Console.WriteLine("{0}-{1} : ", i, j);
-                            foreach (var v in dapsp.path(i, j))
-                            {
-                                Console.WriteLine(v);
-                            }
-                            Console.WriteLine("------------------");
+                            Console.WriteLine(v);
                         }
+                        Console.WriteLine("------------------");
+                    }
+                }
+            }
+        }
+
+        public static bool hasCycles(this EdgeWeightedDigraph ewg)
+        {
+            DirectedCycle dc=new DirectedCycle(ewg);
+            return dc.hasCycle();
+        }
+
+        public static void ShowPathsByAcyclic(this EdgeWeightedDigraph ewg)
+        {
+            for (int i = 0; i < ewg.V; i++)
+            {
+                AcyclicSP dapsp = new AcyclicSP(ewg, i);
+                for (int j = 0; j < ewg.V; j++)
+                {
+                    if (dapsp.hasPathTo(j) && i!=j)
+                    {
+                        Console.WriteLine("{0}-{1} : ", i, j);
+                        foreach (var v in dapsp.pathTo(j))
+                        {
+                            Console.WriteLine(v);
+                        }
+                        Console.WriteLine("------------------");
                     }
                 }
             }
