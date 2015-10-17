@@ -6,7 +6,7 @@ namespace ShortestPath
     {
         private bool[] marked;
         private int[] edgeTo;
-        private Stack<int> cycle; // vertices on a cycle (if one exists)
+        private Stack<DirectedEdge> cycle; // vertices on a cycle (if one exists)
         private bool[] onStack; // vertices on recursive call stack
         public DirectedCycle(EdgeWeightedDigraph G)
         {
@@ -31,11 +31,11 @@ namespace ShortestPath
                 }
                 else if (onStack[w.to])
                 {
-                    cycle = new Stack<int>();
+                    cycle = new Stack<DirectedEdge>();
                     for (int x = v; x != w.to; x = edgeTo[x])
-                        cycle.Push(x);
-                    cycle.Push(w.to);
-                    cycle.Push(v);
+                        //cycle.Push(x);
+                    cycle.Push(w);
+                    //cycle.Push(v);
                 }
             onStack[v] = false;
         }
@@ -45,7 +45,7 @@ namespace ShortestPath
             return cycle != null;
         }
 
-        public IEnumerable<int> Cycle()
+        public IEnumerable<DirectedEdge> Cycle()
         { return cycle; }
     }
 }

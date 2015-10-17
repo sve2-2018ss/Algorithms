@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Acyclic SP\AcyclicSP.cs" />
     <Compile Include="Acyclic SP\DepthFirstOrder.cs" />
+    <Compile Include="BellmanFordSP.cs" />
     <Compile Include="Dijkstra SP\DijkstraSP.cs" />
     <Compile Include="Acyclic SP\DirectedCycle.cs" />
     <Compile Include="DirectedEdge.cs" />

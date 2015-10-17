@@ -16,12 +16,16 @@ namespace ShortestPath
             ewg.ShowEdges();
             Console.WriteLine();
 
-            Console.WriteLine("Dijkstra Paths :");
+            /*Console.WriteLine("Dijkstra Paths :");
             ewg.ShowPathsByDijkstra();
-            Console.WriteLine();
-            
-            Console.WriteLine("Acyclic Paths");
+            Console.WriteLine();*/
+
+            /*Console.WriteLine("Acyclic Paths");
             ewg.ShowPathsByAcyclic();
+            Console.WriteLine();*/
+
+            Console.WriteLine("BellmanFord Paths");
+            ewg.ShowPathsByBellmanFord();
             Console.WriteLine();
 
             Console.ReadKey();
@@ -89,6 +93,26 @@ namespace ShortestPath
                 for (int j = 0; j < ewg.V; j++)
                 {
                     if (dapsp.hasPathTo(j) && i!=j)
+                    {
+                        Console.WriteLine("{0}-{1} : ", i, j);
+                        foreach (var v in dapsp.pathTo(j))
+                        {
+                            Console.WriteLine(v);
+                        }
+                        Console.WriteLine("------------------");
+                    }
+                }
+            }
+        }
+
+        public static void ShowPathsByBellmanFord(this EdgeWeightedDigraph ewg)
+        {
+            for (int i = 0; i < ewg.V; i++)
+            {
+                BellmanFordSP dapsp = new BellmanFordSP(ewg, i);
+                for (int j = 0; j < ewg.V; j++)
+                {
+                    if (dapsp.hasPathTo(j) && i != j)
                     {
                         Console.WriteLine("{0}-{1} : ", i, j);
                         foreach (var v in dapsp.pathTo(j))
