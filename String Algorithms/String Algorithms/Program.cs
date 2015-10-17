@@ -30,7 +30,8 @@ namespace String_Algorithms
             strs.Show();
             Console.WriteLine();
 
-            LSD.sort(strs,7);
+            //LSD.sort(strs,7);
+            MSD.sort(strs);
 
             strs.Show();
             Console.ReadKey();
