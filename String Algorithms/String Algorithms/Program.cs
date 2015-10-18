@@ -41,7 +41,6 @@ namespace String_Algorithms
             #endregion
 
             #region Tries
-
             TrieST<int> tst = new TrieST<int>();
             tst.put("by", 4);
             tst.put("sea", 2);
