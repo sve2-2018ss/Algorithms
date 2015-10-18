@@ -10,7 +10,9 @@ namespace String_Algorithms
     {
         static void Main(string[] args)
         {
-            string[] strs=new string[]
+            #region strings sorts
+
+            /*string[] strs = new string[]
             {
                 "4PGC938",
                 "2IYE230",
@@ -34,7 +36,26 @@ namespace String_Algorithms
             //MSD.sort(strs);
             Quick3string.sort(strs);
 
-            strs.Show();
+            strs.Show();*/
+
+            #endregion
+
+            #region Tries
+
+            TrieST<int> tst = new TrieST<int>();
+            tst.put("by", 4);
+            tst.put("sea", 2);
+            tst.put("sells", 1);
+            tst.put("she", 0);
+            tst.put("shells", 3);
+            tst.put("the", 5);
+
+            foreach (var key in tst.keys())
+            {
+                Console.WriteLine(key);
+            }
+            #endregion
+            
             Console.ReadKey();
 
         }
