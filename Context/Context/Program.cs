@@ -12,12 +12,13 @@ namespace Context
         {
             string str = "Alex Kaplunov";
 
-            SuffixArray sa=new SuffixArray(str);
+            /*SuffixArray sa=new SuffixArray(str);
             for (int i = 0; i < sa.length(); i++)
             {
                 Console.WriteLine(sa.select(i));
             }
-            Console.WriteLine();
+            Console.WriteLine();*/
+            
 
             Console.ReadKey();
         }
