@@ -13,6 +13,15 @@ namespace DATA_COMPRESSION
         {
             Console.Write("INput String for Encoding & Decoding: ");
             string input = Console.ReadLine();
+
+            LZWEncoder lzwEncoder=new LZWEncoder();
+            LZWDecoder lzwDecoder=new LZWDecoder();
+
+            string code = lzwEncoder.Encode(input);
+            
+            string output = lzwDecoder.Decode(code);
+            
+
             HuffmanTree huffmanTree = new HuffmanTree();
 
             // Build the Huffman tree
@@ -21,17 +30,19 @@ namespace DATA_COMPRESSION
             // Encode
             BitArray encoded = huffmanTree.Encode(input);
 
-            Console.Write("Encoded: ");
+            Console.Write("Encoded by Huffman: ");
             foreach (bool bit in encoded)
             {
                 Console.Write((bit ? 1 : 0) + "");
             }
             Console.WriteLine();
+            Console.WriteLine("Encoded by LZW: {0}", code);
 
             // Decode
             string decoded = huffmanTree.Decode(encoded);
 
-            Console.WriteLine("Decoded: " + decoded);
+            Console.WriteLine("Decoded by Huffman: {0}",decoded);
+            Console.WriteLine("Decoded by LZW: {0}", output);
 
             Console.ReadKey();
         }
