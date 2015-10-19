@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubStrinSearch", "SubStrinS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REGULAR EXPRESSIONS", "REGULAR EXPRESSIONS\REGULAR EXPRESSIONS.csproj", "{96EAE9DF-3E08-4573-94B1-697D89D63EBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATA COMPRESSION", "DATA COMPRESSION\DATA COMPRESSION.csproj", "{BEE42523-E670-4A9A-ACB0-012CE7B5257D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{96EAE9DF-3E08-4573-94B1-697D89D63EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96EAE9DF-3E08-4573-94B1-697D89D63EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96EAE9DF-3E08-4573-94B1-697D89D63EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEE42523-E670-4A9A-ACB0-012CE7B5257D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE42523-E670-4A9A-ACB0-012CE7B5257D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE42523-E670-4A9A-ACB0-012CE7B5257D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE42523-E670-4A9A-ACB0-012CE7B5257D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
