@@ -2,16 +2,17 @@
 
 namespace Sorts
 {
-    public static class Merge
+    public class Merge
     {
         private static IComparable[] aux; // auxiliary array for merges
 
-        public static void TopDownSort(IComparable[] a)
+        public void TopDownSort(IComparable[] a)
         {
             aux = new IComparable[a.Length]; // Allocate space just once.
             sort(a, 0, a.Length - 1);
         }
-        private static void sort(IComparable[] a, int lo, int hi)
+
+        protected virtual void sort(IComparable[] a, int lo, int hi)
         { // Sort a[lo..hi].
             if (hi <= lo) return;
             int mid = lo + (hi - lo) / 2;
@@ -20,7 +21,7 @@ namespace Sorts
             merge(a, lo, mid, hi); // Merge results (code on page 271).
         }
 
-        public static void BottomUpSort(IComparable[] a)
+        public void BottomUpSort(IComparable[] a)
         { // Do lg N passes of pairwise merges.
             int N = a.Length;
             aux = new IComparable[N];
@@ -29,7 +30,7 @@ namespace Sorts
                     merge(a, lo, lo + sz - 1, Math.Min(lo + sz + sz - 1, N - 1));
         }
 
-        private static void merge(IComparable[] a, int lo, int mid, int hi)
+        protected virtual void merge(IComparable[] a, int lo, int mid, int hi)
         { // Merge a[lo..mid] with a[mid+1..hi].
             int i = lo, j = mid + 1;
             for (int k = lo; k <= hi; k++) // Copy a[lo..hi] to aux[lo..hi].

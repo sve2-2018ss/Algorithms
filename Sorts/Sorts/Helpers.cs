@@ -10,19 +10,19 @@ namespace Sorts
     {
         public static void CompareElementarySorts(IComparable[] data)
         {
-            var temp = (IComparable[]) data.Clone();
+            var temp = (IComparable[])data.Clone();
             Stopwatch time = new Stopwatch();
             time.Start();
             Selection.Sort(temp);
             time.Stop();
             List<TimeSpan> times = new List<TimeSpan>();
             times.Add(time.Elapsed);
-            temp = (IComparable[]) data.Clone();
+            temp = (IComparable[])data.Clone();
             time.Restart();
             Insertion.Sort(temp);
             time.Stop();
             times.Add(time.Elapsed);
-            temp = (IComparable[]) data.Clone();
+            temp = (IComparable[])data.Clone();
             time.Restart();
             Shell.Sort(temp);
             time.Stop();
@@ -43,16 +43,16 @@ namespace Sorts
 
         public static void CompareMergeSorts(IComparable[] data)
         {
-            var temp = (IComparable[]) data.Clone();
+            var temp = (IComparable[])data.Clone();
             Stopwatch time = new Stopwatch();
             time.Start();
-            Merge.TopDownSort(temp);
+            new Merge().TopDownSort(temp);
             time.Stop();
             List<TimeSpan> times = new List<TimeSpan>();
             times.Add(time.Elapsed);
-            temp = (IComparable[]) data.Clone();
+            temp = (IComparable[])data.Clone();
             time.Restart();
-            Merge.BottomUpSort(temp);
+            new Merge().BottomUpSort(temp);
             time.Stop();
             times.Add(time.Elapsed);
             var min = Helpers.Min(times);
@@ -72,13 +72,13 @@ namespace Sorts
             var temp = (IComparable[])data.Clone();
             Stopwatch time = new Stopwatch();
             time.Start();
-            Quick.Sort(temp);
+            new Quick().Sort(temp);
             time.Stop();
             List<TimeSpan> times = new List<TimeSpan>();
             times.Add(time.Elapsed);
             temp = (IComparable[])data.Clone();
             time.Restart();
-            Quick3Way.Sort(temp);
+            new Quick3Way().Sort(temp);
             time.Stop();
             times.Add(time.Elapsed);
             var min = Helpers.Min(times);

@@ -4,13 +4,13 @@ namespace Sorts
 {
     public class Quick3Way
     {
-        public static void Sort(IComparable[] a)
+        public void Sort(IComparable[] a)
         {
             Helpers.shuffle(a); // Eliminate dependence on input.
             sort(a, 0, a.Length - 1);
         }
 
-        public static void sort(IComparable[] a, int lo, int hi)
+        protected virtual void sort(IComparable[] a, int lo, int hi)
         {
             
             if (hi <= lo) return;

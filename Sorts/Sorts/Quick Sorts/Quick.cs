@@ -1,16 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading;
 
 namespace Sorts
 {
     public class Quick
     {
-        public static void Sort(IComparable[] a)
+        public void Sort(IComparable[] a)
         {
             Helpers.shuffle(a); // Eliminate dependence on input.
             sort(a, 0, a.Length - 1);
         }
-        private static void sort(IComparable[] a, int lo, int hi)
+        
+        protected virtual void sort(IComparable[] a, int lo, int hi)
         {
             if (hi <= lo) return;
             int j = partition(a, lo, hi);
@@ -18,7 +20,7 @@ namespace Sorts
             sort(a, j + 1, hi); // Sort right part a[j+1 .. hi].
         }
 
-        private static int partition(IComparable[] a, int lo, int hi)
+        protected virtual int partition(IComparable[] a, int lo, int hi)
         { // Partition into a[lo..i-1], a[i], a[i+1..hi].
             int i = lo, j = hi + 1; // left and right scan indices
             IComparable v = a[lo]; // partitioning item
