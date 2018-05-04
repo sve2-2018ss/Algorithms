@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SubStrinSearch
 {
@@ -25,7 +20,7 @@ namespace SubStrinSearch
                               "\nKnuth-Morris-Pratt: {4}\n" +
                               "\nBoyer-Moore: {5}\n" +
                               "\nRabin-Karp: {6}\n"
-                              , pat,str,point,AltPoint,KMPpoint,BMpoint,RabinKarp.Rabina(pat,str));
+                              , pat, str, point, AltPoint, KMPpoint, BMpoint, new RabinKarp().Rabina(pat, str));
 
             Console.ReadKey();
         }
@@ -65,7 +60,7 @@ namespace SubStrinSearch
 
         public static int KMPsearch(string pat, string txt)
         {
-            KMP kmp=new KMP(pat);
+            KMP kmp = new KMP(pat);
             return kmp.search(txt);
         }
 
@@ -75,5 +70,5 @@ namespace SubStrinSearch
             return bm.search(txt);
         }
     }
-    
+
 }

@@ -1,6 +1,6 @@
 ﻿namespace SubStrinSearch
 {
-    public class BoyerMoore
+    public class BoyerMoore : AbstractSearch
     {
         private int[] right;
         private string pat;
@@ -26,6 +26,7 @@
             int skip;
             for (int i = 0; i <= N - M; i += skip)
             {
+                NextIteration();
                 // Does the pattern match the text at position i ?
                 skip = 0;
                 for (int j = M - 1; j >= 0; j--)

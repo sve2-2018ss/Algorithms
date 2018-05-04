@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Linq;
-using System.Numerics;
 
 namespace SubStrinSearch
 {
-    public static class RabinKarp
+    public class RabinKarp : AbstractSearch
     {
         private static int Hash(string x)
         {
             int p = 31;
-            return x.Select((t, i) => (int) Math.Pow(p, x.Length - 1 - i)*(int) (t)).Sum();
+            return x.Select((t, i) => (int)Math.Pow(p, x.Length - 1 - i) * (int)(t)).Sum();
         }
-        
-        public static string Rabina(string x, string s)
+
+        public string Rabina(string x, string s)
         {
             string nom = "";
-            if (x.Length > s.Length) return nom; 
+            if (x.Length > s.Length) return nom;
             int xhash = Hash(x);
             int shash = Hash(s.Substring(0, x.Length));
             bool flag;
             int j;
             for (int i = 0; i < s.Length - x.Length; i++)
             {
+                NextIteration();
                 if (xhash == shash)
                 {
                     flag = true;
@@ -32,7 +32,7 @@ namespace SubStrinSearch
                         j++;
                     }
                     if (flag == true)
-                        nom = nom + Convert.ToString(i) + ", "; 
+                        nom = nom + Convert.ToString(i) + ", ";
                 }
                 else shash = (shash - (int)Math.Pow(31, x.Length - 1) * s[i]) * 31 + s[i + x.Length];
             }
